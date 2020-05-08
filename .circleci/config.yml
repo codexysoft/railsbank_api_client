@@ -1,0 +1,31 @@
+version: 2.1 
+
+orbs:
+  ruby: circleci/ruby@0.1.2
+
+jobs:
+  build:
+    working_directory: ~/railsbank_api_client
+    docker:
+      - image: circleci/ruby:2.6.3
+        environment:
+          RAILS_ENV: test
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - run:
+          name: Install dependencies
+          command: |
+            gem install bundler:2.0.2
+            bundle install --retry=3 --path vendor/bundle
+
+      # Cache Dependencies
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+      # Run tests
+      - run: bundle exec rspec spec
