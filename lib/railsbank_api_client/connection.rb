@@ -3,7 +3,7 @@
 module RailsbankApiClient
   class Connection
     HEADERS = {
-      'accept' => 'application/json'
+      'X-Accept' => 'application/json'
     }.freeze
 
     def self.build(config)

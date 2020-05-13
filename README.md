@@ -1,3 +1,23 @@
+# TEST THE GEM LOCALLY
+Initialize a new console session:
+```ruby
+bundle console
+```
+Add your api-key to the configuration:
+```ruby
+RailsbankApiClient.configure do |config|
+  config.api_key = 'your_api_key'
+end
+```
+GET/v1/customer/beneficiaries/{beneficiary_id}:
+```ruby
+RailsbankApiClient::Beneficiary.info(beneficiary_id)
+```
+GET/v1/customer/beneficiaries/{beneficiary_id}/wait:
+```ruby
+RailsbankApiClient::Beneficiary.wait(beneficiary_id)
+```
+
 # RailsbankApiClient
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/railsbank_api_client`. To experiment with that code, run `bin/console` for an interactive prompt.

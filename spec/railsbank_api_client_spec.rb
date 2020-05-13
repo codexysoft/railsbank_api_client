@@ -28,5 +28,16 @@ RSpec.describe RailsbankApiClient do
         expect(RailsbankApiClient::Beneficiary.info(1)).to eq 'success'
       end
     end
+
+    context '#wait' do
+      before do
+        stub_request(:get, "#{RailsbankApiClient.config.api_url}/v1/customer/beneficiaries/1/wait")
+          .to_return(status: 200, body: 'success', headers: {})
+      end
+
+      it 'returns the beneficiary\'s info' do
+        expect(RailsbankApiClient::Beneficiary.wait(1)).to eq 'success'
+      end
+    end
   end
 end
