@@ -17,6 +17,14 @@ GET/v1/customer/beneficiaries/{beneficiary_id}/wait:
 ```ruby
 RailsbankApiClient::Beneficiary.wait(beneficiary_id)
 ```
+GET/v1/customer/me:
+```ruby
+RailsbankApiClient::Customer.me
+```
+GET/v1/customer/my/partners:
+```ruby
+RailsbankApiClient::Customer.partners
+```
 
 # RailsbankApiClient
 

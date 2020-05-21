@@ -7,6 +7,7 @@ require 'railsbank_api_client/connection'
 require 'railsbank_api_client/middleware/config'
 require 'railsbank_api_client/request_helper'
 require 'railsbank_api_client/beneficiary'
+require 'railsbank_api_client/customer'
 
 module RailsbankApiClient
   class << self

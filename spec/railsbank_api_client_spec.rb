@@ -40,4 +40,28 @@ RSpec.describe RailsbankApiClient do
       end
     end
   end
+
+  describe 'Customer' do
+    context '#me' do
+      before do
+        stub_request(:get, "#{RailsbankApiClient.config.api_url}/v1/customer/me")
+            .to_return(status: 200, body: 'success', headers: {})
+      end
+
+      it 'returns customer\'s own information' do
+        expect(RailsbankApiClient::Customer.me).to eq 'success'
+      end
+    end
+
+    context '#partners' do
+      before do
+        stub_request(:get, "#{RailsbankApiClient.config.api_url}/v1/customer/my/partners")
+            .to_return(status: 200, body: 'success', headers: {})
+      end
+
+      it 'returns list of authorised banks for this customer' do
+        expect(RailsbankApiClient::Customer.partners).to eq 'success'
+      end
+    end
+  end
 end
