@@ -17,6 +17,18 @@ GET/v1/customer/beneficiaries/{beneficiary_id}/wait:
 ```ruby
 RailsbankApiClient::Beneficiary.wait(beneficiary_id)
 ```
+GET/v1/customer/endusers/{enduser_id}:
+```ruby
+RailsbankApiClient::Enduser.info(enduser_id)
+```
+GET/v1/customer/endusers/{enduser_id}/wait:
+```ruby
+RailsbankApiClient::Enduser.wait(enduser_id)
+```
+POST/v1/customer/endusers:
+```ruby
+RailsbankApiClient::Enduser.create(params)
+```
 
 # RailsbankApiClient
 
